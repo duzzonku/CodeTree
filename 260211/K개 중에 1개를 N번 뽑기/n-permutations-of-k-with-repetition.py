@@ -1,6 +1,16 @@
 K, N = map(int, input().split())
 
 # Please write your code here.
-for i in range(1, K+1):
-    for j in range(1, N+1):
-        print(i, j)
+result = []
+
+def dfs(depth):
+    if depth == N:
+        print(*result)
+        return
+
+    for i in range(1, K+1):
+        result.append(i)
+        dfs(depth+1)
+        result.pop()
+
+dfs(0)
